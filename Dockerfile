@@ -1,13 +1,10 @@
-# Use official Tomcat image
+# Use the official Tomcat image
 FROM tomcat:9.0
 
-# Remove default ROOT webapp
-RUN rm -rf /usr/local/tomcat/webapps/ROOT
+# Copy your portfolio into a new folder named 'portfolio'
+COPY src/ /usr/local/tomcat/webapps/portfolio/
 
-# Copy your portfolio into ROOT
-COPY src/ /usr/local/tomcat/webapps/ROOT/
-
-# Expose Tomcat default port
+# Expose the default Tomcat port
 EXPOSE 8080
 
 # Start Tomcat
